@@ -1,15 +1,30 @@
 package com.sof3021.assignment.Controllers;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import java.util.Date;
 
-import ch.qos.logback.core.rolling.helper.FileStoreUtil;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class Index {
 
-	@GetMapping("home")
-	public String Home() {
+	@GetMapping("index")
+	public String Home(Model mol) {
+		Date now = new Date();
+		mol.addAttribute("date", now);
+		mol.addAttribute("view", "/views/home.jsp");
+		return "layout";
+	}
+	
+	@GetMapping("cart")
+	public String Cart(Model mol) {
+		mol.addAttribute("view", "/views/users/cart.jsp");
+		return "layout";
+	}
+	@GetMapping("product")
+	public String product(Model mol) {
+		mol.addAttribute("view", "/views/products/product.jsp");
 		return "layout";
 	}
 }
