@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
 
 <style>
 body {
@@ -77,11 +77,11 @@ body {
 	<!-- Menu -->
 	<div class="menu">
 		<ul class="d-flex flex-row-reverse">
-			<li><img src="image/icon/icons8-account-30.png" alt=""><a
+			<li><img src="../image/icon/icons8-account-30.png" alt=""><a
 				href="/kienhtph17743/login">Đăng Nhập</a></li>
-			<li><img src="image/icon/icons8-favorite-cart-30.png" alt=""><a
+			<li><img src="../image/icon/icons8-favorite-cart-30.png" alt=""><a
 				href="/kienhtph17743/cart">Giỏ Hàng</a></li>
-			<li><img src="image/icon/icons8-taxi-mobile-payment-24.png"
+			<li><img src="../image/icon/icons8-taxi-mobile-payment-24.png"
 				alt=""><a href="">Đơn hàng</a></li>
 		</ul>
 	</div>
@@ -91,7 +91,7 @@ body {
 		<div class="container-fluid layout">
 			<div class="ms-5">
 				<a class="navbar-brand" href="/kienhtph17743/index"> <img
-					src="image/logo/coffe logo.png" alt=""
+					src="../image/logo/coffe logo.png" alt=""
 					style="width: 125px; height: 125px;">
 				</a>
 				<button class="navbar-toggler" type="button"
@@ -105,25 +105,19 @@ body {
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link active navtext"
-							aria-current="page" href="#">Cà Phê</a></li>
+							aria-current="page" href="#">Người dùng</a></li>
 						<div class="tx"></div>
 						<li class="nav-item"><a class="nav-link active navtext"
-							aria-current="page" href="#">Trà Sữa</a></li>
+							aria-current="page" href="#">Sản phẩm</a></li>
 						<div class="tx"></div>
 						<li class="nav-item"><a class="nav-link active navtext"
-							aria-current="page" href="#">Trà Chanh</a></li>
-						<div class="tx"></div>
-						<li class="nav-item dropdown"><a
-							class="nav-link navtext dropdown-toggle" href="#" id="navbarDropdown"
-							role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								Khác </a>
-							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item" href="#">Action</a></li>
-								<li><a class="dropdown-item" href="#">Another action</a></li>
-								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" href="#">Something else
-										here</a></li>
-							</ul></li>
+							aria-current="page" href="#">Đơn hàng</a></li>
+						<div class="tx">
+						</div>
+						<li class="nav-item"><a class="nav-link active navtext"
+							aria-current="page" href="#">Loại sản phẩm</a></li>
+						<div class="tx">
+						</div>
 					</ul>
 				</div>
 			</div>
@@ -164,9 +158,7 @@ body {
 	</div>
 
 	<!-- Content -->
-	<jsp:include page="${view }"></jsp:include>
-
-
+	<jsp:include page="${ view }"></jsp:include>
 	<!-- footer -->
 	<div>
 		<section class=" text-center">
@@ -180,31 +172,31 @@ body {
 						<a class="btn btn-link btn-floating btn-lg text-dark m-1"
 							href="https://www.facebook.com/profile.php?id=100076937655293"
 							role="button" data-mdb-ripple-color="dark"><img
-							src="image/icon/icons8-facebook-30.png" alt=""></i></a>
+							src="../image/icon/icons8-facebook-30.png" alt=""></i></a>
 
 						<!-- Twitter -->
 						<a class="btn btn-link btn-floating btn-lg text-dark m-1"
 							href="#!" role="button" data-mdb-ripple-color="dark"><img
-							src="image/icon/icons8-twitter-30.png" alt=""></a>
+							src="../image/icon/icons8-twitter-30.png" alt=""></a>
 
 						<!-- Google -->
 						<a class="btn btn-link btn-floating btn-lg text-dark m-1"
 							href="#!" role="button" data-mdb-ripple-color="dark"><img
-							src="image/icon/icons8-google-30.png" alt=""></i></a>
+							src="../image/icon/icons8-google-30.png" alt=""></i></a>
 
 						<!-- Instagram -->
 						<a class="btn btn-link btn-floating btn-lg text-dark m-1"
 							href="#!" role="button" data-mdb-ripple-color="dark"><img
-							src="image/icon/icons8-instagram-30.png" alt=""></i></a>
+							src="../image/icon/icons8-instagram-30.png" alt=""></i></a>
 
 						<!-- Linkedin -->
 						<a class="btn btn-link btn-floating btn-lg text-dark m-1"
 							href="#!" role="button" data-mdb-ripple-color="dark"><img
-							src="image/icon/icons8-linkedin-circled-30.png" alt=""></a>
+							src="../image/icon/icons8-linkedin-circled-30.png" alt=""></a>
 						<!-- Github -->
 						<a class="btn btn-link btn-floating btn-lg text-dark m-1"
 							href="#!" role="button" data-mdb-ripple-color="dark"><img
-							src="image/icon/icons8-zalo-50.png" alt=""></a>
+							src="../image/icon/icons8-zalo-50.png" alt=""></a>
 					</section>
 					<!-- Section: Social media -->
 				</div>

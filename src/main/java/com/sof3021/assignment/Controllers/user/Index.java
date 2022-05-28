@@ -1,4 +1,4 @@
-package com.sof3021.assignment.Controllers;
+package com.sof3021.assignment.Controllers.user;
 
 import java.util.Date;
 
