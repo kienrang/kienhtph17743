@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.core.sym.Name;
+
 import lombok.Data;
 
 @Data
@@ -40,10 +42,14 @@ public class Products {
 	@Column(name = "available")
 	private int available;
 	
+	@Column(name = "quantity")
+	private int quantity;
+	
 	@ManyToOne
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "category_id")
 	private Categories category;
 	
-	@OneToMany(mappedBy = "products")
-	private List<OderDetails> oroderDetails;
+	@ManyToOne
+	@JoinColumn(name = "product_id")
+	private OderDetails oroderDetails;
 }

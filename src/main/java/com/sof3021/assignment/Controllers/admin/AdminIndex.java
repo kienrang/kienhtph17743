@@ -6,8 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class AdminIndex {
-
-	@GetMapping("/admin/index")
+	@GetMapping("admin/index")
 	public String HomeShow(Model mol) {
 		mol.addAttribute("view", "/views/admin/index.jsp");
 		return "admin/layoutAdmin";

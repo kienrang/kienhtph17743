@@ -70,6 +70,14 @@ body {
 	font-size: 28px;
 	font-weight: 600;
 }
+.formstyle {    
+            background-color: rgba(225, 225, 225, 0);
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            margin-top: 10px !important;
+            border-radius: 0;
+        }
 </style>
 </head>
 
@@ -82,7 +90,7 @@ body {
 			<li><img src="../image/icon/icons8-favorite-cart-30.png" alt=""><a
 				href="/kienhtph17743/cart">Giỏ Hàng</a></li>
 			<li><img src="../image/icon/icons8-taxi-mobile-payment-24.png"
-				alt=""><a href="">Đơn hàng</a></li>
+				alt=""><a href="">Hóa đơn</a></li>
 		</ul>
 	</div>
 
@@ -105,17 +113,17 @@ body {
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link active navtext"
-							aria-current="page" href="#">Người dùng</a></li>
+							aria-current="page" href="/kienhtph17743/admin/index_user">Người dùng</a></li>
 						<div class="tx"></div>
 						<li class="nav-item"><a class="nav-link active navtext"
-							aria-current="page" href="#">Sản phẩm</a></li>
+							aria-current="page" href="/kienhtph17743/admin/product_user">Sản phẩm</a></li>
 						<div class="tx"></div>
 						<li class="nav-item"><a class="nav-link active navtext"
-							aria-current="page" href="#">Đơn hàng</a></li>
+							aria-current="page" href="/kienhtph17743/admin/index_order">Đơn hàng</a></li>
 						<div class="tx">
 						</div>
 						<li class="nav-item"><a class="nav-link active navtext"
-							aria-current="page" href="#">Loại sản phẩm</a></li>
+							aria-current="page" href="index_categories">Loại sản phẩm</a></li>
 						<div class="tx">
 						</div>
 					</ul>
@@ -132,7 +140,7 @@ body {
 	</nav>
 	<!-- Carousel -->
 	<div id="carouselExampleControls"
-		class="carousel slide text-center bg-secondary text-white carou"
+		class="carousel slide text-center bg-secondary text-white carou p-0 m-0"
 		data-bs-ride="carousel">
 		<div class="carousel-inner ">
 			<div class="carousel-item active">
@@ -211,8 +219,9 @@ body {
 			</footer>
 		</section>
 	</div>
-
-	<script src="js/bootstrap.min.js"></script>
+	<script src="../js/query.min.js"></script>
+	<script src="../js/popper.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
 </body>
 
 </html>

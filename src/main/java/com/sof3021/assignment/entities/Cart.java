@@ -14,29 +14,24 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-@Entity
-@Table(name = "order_details")
 @Data
-public class OderDetails {
+@Entity
+@Table(name = "cart")
+public class Cart {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
 	
+	@Column(name = "product_id")
+	private int product_id;
+	
 	@ManyToOne
-	@JoinColumn(name = "orderDetails")
-	private Orders orders;
-	
-	
-	@OneToMany(mappedBy = "oroderDetails")
-	private List<Products> products;
-	
-	@Column(name = "price")
-	private int price;
+	@JoinColumn(name = "user_id")
+	private Account user;
 	
 	@Column(name = "quantity")
-	private int quantity;
-	
+	private String quantity;
 	
 }

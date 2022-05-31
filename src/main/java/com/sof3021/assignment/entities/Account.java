@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -49,4 +48,6 @@ public class Account {
 	@OneToMany(mappedBy = "acc")
 	private List<Orders> Orders; 
 	
+	@OneToMany(mappedBy = "user")
+	private List<Cart> carts; 
 }
