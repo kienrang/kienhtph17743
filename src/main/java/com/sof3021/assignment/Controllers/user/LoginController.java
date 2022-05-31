@@ -13,15 +13,15 @@ import com.sof3021.assignment.entities.Account;
 public class LoginController {
 	
 	@GetMapping("login")
-	public String Login(Model mol) {
+	public String Login(Model mol, @ModelAttribute("acc")Account acc) {
 		mol.addAttribute("view", "/views/login/login.jsp");
 		return "layout";
 	}
 	
 	@PostMapping("login")
 	public String Logged(@ModelAttribute("acc")Account acc) {
-		System.out.println(acc.getName());
-		System.out.println(acc.getId());
+		System.out.println(acc.getEmail());
+		System.out.println(acc.getPassword());
 		return "redirect:/index";
 	}
 	
