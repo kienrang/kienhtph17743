@@ -26,7 +26,7 @@ public class Orders {
 	private int id;
 	
 	@ManyToOne
-	@JoinColumn(name = "Orders")
+	@JoinColumn(name = "user_id")
 	private Account acc;
 	
 	@Column(name = "create_date")

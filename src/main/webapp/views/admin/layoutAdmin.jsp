@@ -114,7 +114,7 @@ body {
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link active navtext"
 							aria-current="page" href="/kienhtph17743/admin/index_user">Người dùng</a></li>
-						<div class="tx"></div>
+						<div class="tx"> </div>
 						<li class="nav-item"><a class="nav-link active navtext"
 							aria-current="page" href="/kienhtph17743/admin/product_user">Sản phẩm</a></li>
 						<div class="tx"></div>

@@ -11,20 +11,26 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @Table(name="categories")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Categories {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private String id;
+	@Column(name="id")
+	private int id;
+	
 	@Column(name = "name")
 	private String name;
-	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+	
+	@OneToMany(mappedBy = "category")
 	private List<Products> products;
 	
 	

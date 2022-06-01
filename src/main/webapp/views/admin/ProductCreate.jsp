@@ -14,7 +14,7 @@
                 </div>
                 <div class="m-2">
                     <label for="">Ngày tạo</label>
-                    <form:input path="available" type="text" class="form-control"/>
+                    <form:input path="date" type="text" class="form-control"/>
                 </div>
                 <div class="m-2">
                     <label for="">Số lượng</label>

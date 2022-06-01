@@ -50,6 +50,6 @@ public class Products {
 	private Categories category;
 	
 	@ManyToOne
-	@JoinColumn(name = "product_id")
+	@JoinColumn(name = "ordersDetails")
 	private OderDetails oroderDetails;
 }
