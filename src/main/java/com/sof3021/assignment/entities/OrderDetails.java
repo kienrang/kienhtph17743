@@ -17,7 +17,7 @@ import lombok.Data;
 @Entity
 @Table(name = "order_details")
 @Data
-public class OderDetails {
+public class OrderDetails {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,12 +25,12 @@ public class OderDetails {
 	private int id;
 	
 	@ManyToOne
-	@JoinColumn(name = "orderDetails")
+	@JoinColumn(name = "order_id")
 	private Orders orders;
 	
 	
-	@OneToMany(mappedBy = "oroderDetails")
-	private List<Products> products;
+	@Column(name = "product_id")
+	private int products;
 	
 	@Column(name = "price")
 	private int price;

@@ -15,5 +15,6 @@ public class ProductModel {
 	private String date;
 	private int quantity;
 	private String image;
+	private int category_id;
 	
 }

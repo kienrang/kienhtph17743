@@ -116,14 +116,14 @@ body {
 							aria-current="page" href="/kienhtph17743/admin/index_user">Người dùng</a></li>
 						<div class="tx"> </div>
 						<li class="nav-item"><a class="nav-link active navtext"
-							aria-current="page" href="/kienhtph17743/admin/product_user">Sản phẩm</a></li>
+							aria-current="page" href="/kienhtph17743/admin/index_product">Sản phẩm</a></li>
 						<div class="tx"></div>
 						<li class="nav-item"><a class="nav-link active navtext"
 							aria-current="page" href="/kienhtph17743/admin/index_order">Đơn hàng</a></li>
 						<div class="tx">
 						</div>
 						<li class="nav-item"><a class="nav-link active navtext"
-							aria-current="page" href="index_categories">Loại sản phẩm</a></li>
+							aria-current="page" href="index_category">Loại sản phẩm</a></li>
 						<div class="tx">
 						</div>
 					</ul>

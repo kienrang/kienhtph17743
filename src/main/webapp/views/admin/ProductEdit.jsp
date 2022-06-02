@@ -13,8 +13,12 @@
                     <form:input path="price" type="text" class="form-control"/>
                 </div>
                 <div class="m-2">
-                    <label for="">Ngày tạo</label>
-                    <form:input path="available" type="text" class="form-control"/>
+                    <label for="">Loại</label>
+                    <form:select path="category_id" class="form-control">
+					<c:forEach items="${ cate }" var="ct">
+						<form:option value="${ct.id }">${ct.name}</form:option>
+					</c:forEach>
+				</form:select>
                 </div>
                 <div class="m-2">
                     <label for="">Số lượng</label>

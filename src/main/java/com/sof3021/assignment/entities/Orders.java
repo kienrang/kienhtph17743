@@ -39,5 +39,5 @@ public class Orders {
 	private int active;
 	
 	@OneToMany(mappedBy = "orders")
-	private List<OderDetails> orderDetails;
+	private List<OrderDetails> orderDetails;
 }

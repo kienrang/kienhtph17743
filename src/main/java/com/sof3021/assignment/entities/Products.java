@@ -15,9 +15,15 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.core.sym.Name;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name="products")
 public class Products {
@@ -34,7 +40,7 @@ public class Products {
 	private String image;
 	
 	@Column(name = "price")
-	private String price;
+	private int price;
 	
 	@Column(name = "created_date")
 	private Date created_date;
@@ -49,7 +55,8 @@ public class Products {
 	@JoinColumn(name = "category_id")
 	private Categories category;
 	
-	@ManyToOne
-	@JoinColumn(name = "ordersDetails")
-	private OderDetails oroderDetails;
+//	@ManyToOne
+//	@JoinColumn(name = "ordersDetail_id")
+//	private OderDetails orderDetail_id;
+	
 }
