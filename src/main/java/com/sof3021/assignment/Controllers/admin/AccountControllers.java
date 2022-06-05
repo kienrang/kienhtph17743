@@ -22,8 +22,7 @@ public class AccountControllers {
 	private AccountRepository accRepository;
 	
 	@GetMapping("/admin/index_user")
-	public String index(Model mol	
-			) {
+	public String index(Model mol,@ModelAttribute("user") AccountModel user) {
 		List<Account> ds = this.accRepository.findAll();
 		mol.addAttribute("lsUser", ds);
 		mol.addAttribute("view", "/views/admin/UserIndex.jsp");
@@ -37,7 +36,6 @@ public class AccountControllers {
 	}
 	@PostMapping("/admin/store_user")
 	public String store(@ModelAttribute("user") AccountModel user) {
-		
 		Account acc = new Account();
 		acc.setFullname(user.getFullname());
 		acc.setEmail(user.getEmail());
@@ -46,7 +44,6 @@ public class AccountControllers {
 		acc.setActivated(user.getActivated());
 		acc.setId(0);
 		acc.setAdmin(0);
-		
 		try {
 			this.accRepository.save(acc);
 		}catch (Exception e) {
@@ -56,13 +53,27 @@ public class AccountControllers {
 		return "redirect:/admin/index_user";
 	}
 	@GetMapping("/admin/edit_user/{id}")
-	public String edit(Model mol,@PathVariable("id") Account user) {
-		mol.addAttribute("user", user);
-		mol.addAttribute("view", "/views/admin/Users/UserEdit.jsp");
+	public String edit(Model mol,@PathVariable("id") Integer id) {
+		System.out.println(id);
+		mol.addAttribute("user", this.accRepository.findByIdUser(id));
+		mol.addAttribute("view", "/views/admin/UserEdit.jsp");
 		return "admin/layoutAdmin";
 	}
-	@PostMapping("/admin/update_user")
-	public String update(@ModelAttribute("user")AccountModel user) {
+	@PostMapping("/admin/update_user/{id}")
+	public String update(@ModelAttribute("user")AccountModel user,@PathVariable("id") Integer id) {
+		Account acc =  this.accRepository.getOne(id);
+		acc.setEmail(user.getEmail());
+		acc.setFullname(acc.getFullname());
+		acc.setPassword(user.getPassword());
+		if(user.getPhoto() != null) {
+			acc.setPhoto(user.getPhoto());
+		}
+		acc.setId(id);
+		acc.setActivated(user.getActivated());
+		acc.setAdmin(1);
+		
+		this.accRepository.save(acc);
+		
 		return "redirect:/admin/index_user";
 	}
 	

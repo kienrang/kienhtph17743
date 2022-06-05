@@ -12,16 +12,8 @@
             </div>
             <div class="ms-2" >
                 <p style="font-size: 25px;">Giới thiệu sản phẩm</p>
-                <div class="d-flex">
-                    <form action="">
-                        <label for="">Size :</label>
-                        <select name="" id="" class="ms-3" style="width: 100px; border-radius: 5px;">
-                            <option value="">S</option>
-                            <option value="">M</option>
-                            <option value="">L</option>
-                        </select>
-                    </form>
-                </div>
+                <p style="font-size: 25px;">50000 VNĐ</p>
+                
                 <div class="mt-5">
                     <a href="" class="btn btn-outline-secondary">Mua Ngay</a>
                     <a href="" class="btn btn-outline-warning">Thêm vào giỏ hàng</a>

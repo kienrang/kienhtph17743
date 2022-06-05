@@ -12,11 +12,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "order_details")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class OrderDetails {
 	
 	@Id
@@ -28,9 +32,10 @@ public class OrderDetails {
 	@JoinColumn(name = "order_id")
 	private Orders orders;
 	
-	
-	@Column(name = "product_id")
-	private int products;
+	@ManyToOne
+//	@Column(name = "product_id")
+	@JoinColumn(name = "product_id")
+	private Products products;
 	
 	@Column(name = "price")
 	private int price;

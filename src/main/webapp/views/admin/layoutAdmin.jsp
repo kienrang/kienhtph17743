@@ -90,7 +90,7 @@ body {
 			<li><img src="../image/icon/icons8-favorite-cart-30.png" alt=""><a
 				href="/kienhtph17743/cart">Giỏ Hàng</a></li>
 			<li><img src="../image/icon/icons8-taxi-mobile-payment-24.png"
-				alt=""><a href="">Hóa đơn</a></li>
+				alt=""><a href="/kienhtph17743/admin/hoadon">Hóa đơn</a></li>
 		</ul>
 	</div>
 
@@ -98,7 +98,7 @@ body {
 	<nav class="navbar navbar-expand-lg bg-light">
 		<div class="container-fluid layout">
 			<div class="ms-5">
-				<a class="navbar-brand" href="/kienhtph17743/index"> <img
+				<a class="navbar-brand" href="/kienhtph17743/admin/index_order"> <img
 					src="../image/logo/coffe logo.png" alt=""
 					style="width: 125px; height: 125px;">
 				</a>

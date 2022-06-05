@@ -29,8 +29,10 @@ public class ProductController {
 	private CategoryRepository categoryRepository;
 	
 	@GetMapping("admin/index_product")
-	public String show(Model mol) {
+	public String show(Model mol,@ModelAttribute("product")ProductModel product) {
 		List<Products> ls = this.productRepository.findAll();
+		List<Categories> ds = this.categoryRepository.findAll();
+		mol.addAttribute("cate", ds);
 		mol.addAttribute("ds", ls);
 		mol.addAttribute("view", "/views/admin/ProductIndex.jsp");
 		return "admin/layoutAdmin";
@@ -69,9 +71,10 @@ public class ProductController {
 		return "admin/layoutAdmin";
 	}
 	
-	@PostMapping("admin/update_product")
-	public String update(@ModelAttribute("product")ProductModel product) {
-		Products pro = new Products();
+	@PostMapping("admin/update_product/{id}")
+	public String update(@ModelAttribute("product")ProductModel product, @PathVariable("id")Integer id) {
+		System.out.println("ràng------" + id);
+		Products pro = this.productRepository.getOne(id);
 		pro.setName(product.getName());
 		pro.setImage(product.getImage());
 		pro.setPrice(Integer.valueOf(product.getPrice()));

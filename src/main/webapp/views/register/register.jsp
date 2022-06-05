@@ -8,10 +8,10 @@
 			<h1 class=""
 				style="font-family: NunitoSanRegular; font-weight: bold; color: rgb(255, 255, 255); margin-bottom: 20px;">ĐĂNG
 				KÍ NGAY</h1>
-			<form action="/kienhtph17743/register_info"
-				class="text-center d-flex">
+			<form action="/kienhtph17743/register_info?email="
+				class="text-center d-flex" method="get">
 				<div class="input-group mb-3">
-					<input type="text" class="form-control" placeholder="Nhập email">
+					<input type="text" class="form-control" placeholder="Nhập email" name = "email">
 					<button class="btn next" style="background-color: orange;">
 						<img src="image/icon/Next-button-30.png" alt="" srcset="">
 					</button>

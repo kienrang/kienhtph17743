@@ -13,5 +13,7 @@ import com.sof3021.assignment.entities.Account;
 public interface AccountRepository extends JpaRepository<Account, Integer>{
 
 	@Query("SELECT acc FROM Account acc WHERE acc.email = :email")
-	public Account findByEmailUser(@Param("email")String email); 
+	public Account findByEmailUser(@Param("email")String email);
+	@Query("SELECT acc FROM Account acc WHERE acc.id = :id")
+	public Account findByIdUser(@Param("id")Integer id); 
 }

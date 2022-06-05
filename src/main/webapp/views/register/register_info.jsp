@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" session="true"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <div class="mt-5">
 	<div class="pt-5"
 		style="height: 650px; background-image: url(image/background/background-resister.jpg); background-size: cover; display: flex; justify-content: center;">
@@ -8,21 +9,21 @@
 			<h1 class=""
 				style="font-family: NunitoSanRegular; font-weight: bold; color: rgb(248, 204, 7); margin-bottom: 20px;">
 				Thông tin cá nhân</h1>
-			<form action="/kienhtph17743/register_confirm" class="text-white">
+			<form:form action="/kienhtph17743/register_confirm" class="text-white" modelAttribute="acc" method="post">
 				<div class="">
 					<div class="mt-2">
-						<label for="">Họ tên</label> <input type="text"
-							class="form-control" placeholder="Tên của bạn">
+						<label for="">Họ tên</label> <form:input type="text"
+							class="form-control" placeholder="Tên của bạn" path="fullname"/>
 					</div>
 
 					<div class="mt-2">
-						<label for="">Mật khẩu</label> <input type="password"
-							class="form-control" placeholder="Mật khẩu">
+						<label for="">Mật khẩu</label> <form:password 
+							class="form-control" placeholder="Mật khẩu" path="password"/>
 					</div>
 
 					<div class="mt-2">
-						<label for="">Ảnh đại diện</label> <input type="file"
-							class="form-control" placeholder="Ảnh đại diện">
+						<label for="">Ảnh đại diện</label> <form:input type="file"
+							class="form-control" placeholder="Ảnh đại diện" path="photo"/>
 					</div>
 
 					<div class="text-center container-fluid" style="width: 70%;">
@@ -30,7 +31,7 @@
 							Kí</button>
 					</div>
 				</div>
-			</form>
+			</form:form>
 			<div class="container text-center">
 				<a href="" class="btn btn-warning mt-5">Quay lại trang chủ</a>
 			</div>

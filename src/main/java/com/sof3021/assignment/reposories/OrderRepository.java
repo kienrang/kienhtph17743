@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.sof3021.assignment.entities.OrderDetails;
 import com.sof3021.assignment.entities.Orders;
 
 @Repository
@@ -17,5 +16,8 @@ public interface OrderRepository extends JpaRepository<Orders, Integer>{
 	
 	@Query("Select o From Orders o WHERE o.acc.id = :id")
 	public List<Orders> findByIdAcc(@Param("id")Integer acc);
+	
+	@Query("Select o From Orders o Where o.active = :active")
+	public List<Orders> findByActive(@Param("active") Integer active);
 	
 }

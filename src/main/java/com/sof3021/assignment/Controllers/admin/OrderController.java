@@ -5,11 +5,16 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.catalina.filters.ExpiresFilter.XServletOutputStream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.sof3021.assignment.beans.OrderModel;
@@ -23,6 +28,7 @@ import com.sof3021.assignment.reposories.OrderRepository;
 import com.sof3021.assignment.reposories.ProductRepository;
 @Controller
 public class OrderController {
+	
 	@Autowired
 	private ProductRepository productRepository;
 	@Autowired
@@ -33,7 +39,20 @@ public class OrderController {
 	private OrderDetailRepostory detailRepostory;
 	
 	@GetMapping("/admin/index_order")
-	public String index(Model mol) {
+	public String index(Model mol, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		List<Orders> ls = this.orderRepository.findByActive(1);
+		Orders o = new Orders();
+		if(ls.size()<=0) {
+			ls = null;
+			session.setAttribute("trong", "Không có đơn hàng");
+		}else {
+			o = ls.get(0);
+			List<OrderDetails> lsoddl = this.detailRepostory.findByOrder_id(o);
+			mol.addAttribute("lsoddl",lsoddl);
+			mol.addAttribute("ls", ls);
+		}
+		
 		mol.addAttribute("view", "/views/admin/OrderIndex.jsp");
 		return "admin/layoutAdmin";
 	}
@@ -46,7 +65,6 @@ public class OrderController {
 		mol.addAttribute("view", "/views/admin/OrderCreate.jsp");
 		return "admin/layoutAdmin";
 	}
-	
 	
 	
 	@PostMapping("/admin/store_order")
@@ -66,7 +84,7 @@ public class OrderController {
 		
 		for (Integer id : order.getProduct_id()) {
 			OrderDetails o = new OrderDetails();
-			o.setProducts(id);
+			o.setProducts(this.productRepository.getOne(id));
 			oddtl.add(o);
 		}
 		for (int i = 0; i < oddtl.size(); i++) {
@@ -79,6 +97,49 @@ public class OrderController {
 		}
 		this.detailRepostory.saveAll(oddtl);		
 		return "redirect:/admin/index_order";
+	}
+	
+	@GetMapping("/admin/confirm_order/{id}")
+	public String confirm(@PathVariable("id") Integer id) {
+		Orders o = this.orderRepository.getOne(id);
+		o.setActive(2);
+		this.orderRepository.save(o);
+		
+		return "redirect:/admin/index_order";
+	}
+	@GetMapping("/admin/cancel_order/{id}")
+	public String cancel(@PathVariable("id") Integer id) {
+		Orders o = this.orderRepository.getOne(id);
+		o.setActive(0);
+		this.orderRepository.save(o);
+		
+		return "redirect:/admin/index_order";
+	}
+	
+	@GetMapping("/admin/hoadon")
+	public String hoadon(Model mol) {
+		List<Orders> ls = this.orderRepository.findByActive(2);
+		Orders o = new Orders();
+		if(ls.size()<=0) {
+			ls = null;
+			
+		}else {
+			o = ls.get(0);
+		}
+		List<OrderDetails> lsoddl = this.detailRepostory.findByOrder_id(o);
+		mol.addAttribute("lsoddl",lsoddl);
+		mol.addAttribute("ls", ls);
+		mol.addAttribute("view", "/views/admin/hoadon.jsp");
+		return "admin/layoutAdmin";
+	}
+	@GetMapping("/admin/hdct/{id}")
+	public String hoadonct(Model mol,@PathVariable("id") Integer id ) {
+		List<Orders> ls = this.orderRepository.findByActive(2);
+		List<OrderDetails> lsoddl = this.detailRepostory.findByOrder_id(this.orderRepository.getOne(id));
+		mol.addAttribute("lsoddl",lsoddl);
+		mol.addAttribute("ls", ls);
+		mol.addAttribute("view", "/views/admin/hdct.jsp");
+		return "admin/layoutAdmin";
 	}
 	
 	

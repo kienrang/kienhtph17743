@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <div class="container p-0 mt-2" style="min-height: 460px;">
         <div class="" style="width: 30%; margin-left: 33%;">
             <form:form action="/kienhtph17743/admin/store_product" method="POST" modelAttribute="product">

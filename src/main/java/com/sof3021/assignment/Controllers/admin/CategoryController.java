@@ -35,7 +35,6 @@ public class CategoryController {
 		Categories cate = new Categories();
 		cate.setName(mol.getName());
 		
-		System.out.println("-----------" + cate.getName() + "----------------");
 		try {
 			this.cateRepository.save(cate);
 		} catch (Exception e) {
