@@ -43,7 +43,7 @@ public class LoginController {
 			session.setAttribute("error", "Email hoặc mật khẩu không đúng!");
 		}
 		if(check ==1) {
-			return "redirect:/admin/hoadon";
+			return "redirect:/admin/index_order";
 		}else if(check ==0) {
 			return "redirect:/index";
 		}else {

@@ -42,6 +42,9 @@ public class Orders {
 	@Column(name = "active")
 	private int active;
 	
+	@Column(name = "price")
+	private int price;
+	
 	@OneToMany(mappedBy = "orders")
 	private List<OrderDetails> orderDetails;
 }

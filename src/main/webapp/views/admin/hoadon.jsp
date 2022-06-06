@@ -23,7 +23,7 @@
 								<td>${o.id }</td>
 								<td>${o.acc.fullname }</td>
 								<td>${o.address}</td>
-								<td>1 trăm triệu</td>
+								<td>${o.price }</td>
 								<td><a href="/kienhtph17743/admin/hdct/${o.id}" class="btn btn-warning">Xem chi tiết</a></td>
 							</tr>
 						</c:forEach> 

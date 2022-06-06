@@ -32,12 +32,12 @@
 									<td>${o.id }</td>
 									<td>${o.acc.fullname }</td>
 									<td>${o.address}</td>
-									<td>1 trăm triệu</td>
+									<td>${o.price}</td>
 									<td><a href="/kienhtph17743/admin/hdct/${o.id}"
 										class="btn btn-warning">Xem chi tiết</a></td>
 									<td><a href="/kienhtph17743/admin/confirm_order/${o.id}"
 										class="btn btn-secondary">Xác nhận</a></td>
-									<td><a href="" class="btn btn-danger">Hủy đơn</a></td>
+									<td><a href="/kienhtph17743/admin/cancel_order/${o.id}" class="btn btn-danger">Hủy đơn</a></td>
 								</tr>
 							</c:forEach>
 						</c:if>

@@ -78,7 +78,7 @@ public class OrderUserController {
 		System.out.println("Ché----->" + order.toString());
 		od.setAcc(account);
 		od.setAddress(order.getAddress());
-		od.setActive(2);
+		od.setActive(1);
 		od.setCreate_date(new Date());
 		this.orderRepository.save(od);
 		List<Orders> odn = this.orderRepository.findByIdAcc(account.getId());
@@ -92,6 +92,7 @@ public class OrderUserController {
 			o.setProducts(this.productRepository.getOne(id));
 			oddtl.add(o);
 		}
+		int price = 0;
 		for (int i = 0; i < oddtl.size(); i++) {
 			oddtl.get(i).setOrders(oddb);
 			oddtl.get(i).setQuantity(order.getQuantity().get(i));
@@ -99,7 +100,11 @@ public class OrderUserController {
 			int quantity = order.getQuantity().get(i);
 			oddtl.get(i).setPrice(pro_price*quantity);
 //			this.detailRepostory.save(oddtl.get(i));
+			price += oddtl.get(i).getPrice();
 		}
+		System.out.println(price);
+		od.setPrice(price);
+		this.orderRepository.save(od);
 		this.detailRepostory.saveAll(oddtl);		
 		return "redirect:/index";
 	}

@@ -37,7 +37,6 @@ public class RegisterController {
 		email = request.getParameter("email");
 		System.out.println("ché----------->"+email);
 		if (email.equals("")) {
-			System.out.println("Ché ràng");
 			//Xử lí trả lỗi
 			return "redirect:/register";
 		}else {
@@ -59,10 +58,8 @@ public class RegisterController {
 	}
 	@PostMapping("registerAccount")
 	public String register(HttpServletRequest request, Model mol) {
-		System.out.println(acount.toString());
+		HttpSession session = request.getSession();
 		String code = request.getParameter("code");
-		System.out.println(code);
-		System.out.println(confirm);
 		if(confirm == Integer.valueOf(code)) {
 			Account acc = new Account();
 			acc.setEmail(acount.getEmail());
@@ -73,13 +70,13 @@ public class RegisterController {
 			acc.setId(0);
 			try {
 				this.accountRepository.save(acc);
+				session.setAttribute("error", "Đăng kí thành công!");
 			} catch (Exception e) {
-				HttpSession session = request.getSession();
+				
 				session.setAttribute("error", "Email của bạn đã có rồi!");
 			}
 			return "redirect:/login";
 		}else {
-			HttpSession session = request.getSession();
 			session.setAttribute("error", "Đăng kí không thành công!");
 			return "redirect:/login";
 		}

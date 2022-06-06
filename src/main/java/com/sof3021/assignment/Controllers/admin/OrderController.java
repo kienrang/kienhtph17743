@@ -87,6 +87,7 @@ public class OrderController {
 			o.setProducts(this.productRepository.getOne(id));
 			oddtl.add(o);
 		}
+		int price = 0;
 		for (int i = 0; i < oddtl.size(); i++) {
 			oddtl.get(i).setOrders(oddb);
 			oddtl.get(i).setQuantity(order.getQuantity().get(i));
@@ -95,6 +96,8 @@ public class OrderController {
 			oddtl.get(i).setPrice(pro_price*quantity);
 //			this.detailRepostory.save(oddtl.get(i));
 		}
+		od.setPrice(price);
+		this.orderRepository.save(od);
 		this.detailRepostory.saveAll(oddtl);		
 		return "redirect:/admin/index_order";
 	}

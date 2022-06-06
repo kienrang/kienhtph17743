@@ -31,15 +31,9 @@ import com.sof3021.assignment.reposories.ProductRepository;
 public class CartController {
 	
 	@Autowired
-	private OrderRepository orderRepository;
-	@Autowired
-	private OrderDetailRepostory detailRepostory;
-	@Autowired
 	private CartRepository cartRepository;
 	@Autowired
 	private ProductRepository productRepository;
-	@Autowired
-	private AccountRepository accountRepository;
 	
 	@GetMapping("cart")
 	public String Cart(Model mol, @ModelAttribute("order") OrderModel order, HttpServletRequest request) {
