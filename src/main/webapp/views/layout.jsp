@@ -120,9 +120,10 @@ body {
 	<nav class="navbar navbar-expand-lg bg-light">
 		<div class="container-fluid layout">
 			<div class="ms-5">
-				<a class="navbar-brand" href="/kienhtph17743/index"> <img
-					src="image/logo/coffeelogo.png" alt=""
-					style="width: 125px; height: 125px;">
+				<a class="navbar-brand" href="/kienhtph17743/index"> 		
+				<img
+					src="image/logo/logo.png" alt=""
+					style="width: 125px;"/>
 				</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
