@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" session="true"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,8 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
-<link rel="stylesheet" href="css/bootstrap.min.css">
-
+<link rel="stylesheet" href="../css/bootstrap.min.css">
 <style>
 body {
 	font-family: NunitoSanRegular;
@@ -79,30 +77,11 @@ body {
 	<!-- Menu -->
 	<div class="menu">
 		<ul class="d-flex flex-row-reverse">
-
-			<c:if test="${ user == null}">
-				<li><img src="image/icon/icons8-account-30.png" alt=""> 
-					<a href="/kienhtph17743/login">Đăng Nhập</a>
-			</li>
-			
-			</c:if>
-			<c:if test="${ user != null}">
-				<li class="nav-item dropdown">
-				<img src="image/icon/icons8-account-30.png" alt=""><a
-				class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-				role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					${user.fullname } </a>
-				<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<li><a class="dropdown-item" href="/kienhtph17743/logout">Đăng Xuất</a></li>
-				</ul></li>
-			</c:if>
-
-			
-
-
-			<li><img src="image/icon/icons8-favorite-cart-30.png" alt=""><a
+			<li><img src="../image/icon/icons8-account-30.png" alt=""><a
+				href="/kienhtph17743/login">Đăng Nhập</a></li>
+			<li><img src="../image/icon/icons8-favorite-cart-30.png" alt=""><a
 				href="/kienhtph17743/cart">Giỏ Hàng</a></li>
-			<li><img src="image/icon/icons8-taxi-mobile-payment-24.png"
+			<li><img src="../image/icon/icons8-taxi-mobile-payment-24.png"
 				alt=""><a href="">Đơn hàng</a></li>
 		</ul>
 	</div>
@@ -112,7 +91,7 @@ body {
 		<div class="container-fluid layout">
 			<div class="ms-5">
 				<a class="navbar-brand" href="/kienhtph17743/index"> <img
-					src="image/logo/coffe logo.png" alt=""
+					src="../image/logo/coffe logo.png" alt=""
 					style="width: 125px; height: 125px;">
 				</a>
 				<button class="navbar-toggler" type="button"
@@ -135,9 +114,9 @@ body {
 							aria-current="page" href="#">Trà Chanh</a></li>
 						<div class="tx"></div>
 						<li class="nav-item dropdown"><a
-							class="nav-link navtext dropdown-toggle" href="#"
-							id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-							aria-expanded="false"> Khác </a>
+							class="nav-link navtext dropdown-toggle" href="#" id="navbarDropdown"
+							role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Khác </a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<li><a class="dropdown-item" href="#">Action</a></li>
 								<li><a class="dropdown-item" href="#">Another action</a></li>
@@ -235,16 +214,13 @@ body {
 				<div class="text-center text-white p-3"
 					style="background-color: rgba(32, 32, 32, 0.2);">
 					<jsp:useBean id="now" class="java.util.Date" />
-					<p>
-						©
-						<fmt:formatDate value="${now }" pattern="EE, dd-MM-yyyy" />
-					</p>
+					<p>© <fmt:formatDate value="${now }" pattern="EE, dd-MM-yyyy" /></p>
 				</div>
 				<!-- Copyright -->
 			</footer>
 		</section>
 	</div>
-
+	
 	<script src="js/query.min.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

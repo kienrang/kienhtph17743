@@ -30,6 +30,10 @@
 				<label for="">Hình Ảnh</label>
 				<form:input path="image" type="file" class="form-control" />
 			</div>
+			<div class="m-2">
+				<label for="">Ghi chú</label>
+				<form:textarea path="note" type="file" class="form-control" />
+			</div>
 
 			<div style="width: 70%; margin-left: 15%;">
 				<form:button class="container btn btn-outline-primary">Lưu sản phẩm</form:button>

@@ -133,7 +133,7 @@ public class OrderController {
 		return "admin/layoutAdmin";
 	}
 	@GetMapping("/admin/hdct/{id}")
-	public String hoadonct(Model mol,@PathVariable("id") Integer id ) {
+	public String hoadonct(Model mol,@PathVariable("id") Integer id) {
 		List<Orders> ls = this.orderRepository.findByActive(2);
 		List<OrderDetails> lsoddl = this.detailRepostory.findByOrder_id(this.orderRepository.getOne(id));
 		mol.addAttribute("lsoddl",lsoddl);

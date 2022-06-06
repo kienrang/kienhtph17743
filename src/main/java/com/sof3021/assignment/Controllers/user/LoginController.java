@@ -31,10 +31,9 @@ public class LoginController {
 	public String Logged(@ModelAttribute("acc")Account acc, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		Account account = this.accountRepository.findByEmailUser(acc.getEmail());
-		System.out.println(acc.getEmail());
-		System.out.println(acc.getPassword());		
 		int check = 2;
 		if(acc.getEmail().equals(account.getEmail()) && acc.getPassword().equals(account.getPassword())) {
+			session.setAttribute("user", account);
 			if(account.getAdmin()==1) {
 				check =1;
 			}else {
@@ -50,6 +49,13 @@ public class LoginController {
 		}else {
 			return "redirect:/login";
 		}
+	}
+	
+	@GetMapping("/logout") 
+	public String logout(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		session.setAttribute("user", null);
+		return "redirect:/index";
 	}
 	
 }

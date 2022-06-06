@@ -54,6 +54,7 @@ public class ProductController {
 		pro.setPrice(Integer.valueOf(product.getPrice()));
 		pro.setQuantity(product.getQuantity());
 		pro.setAvailable(1);
+		pro.setNote(product.getNote());
 		Date now = new Date();
 		pro.setCreated_date(now);
 		pro.setCategory(this.categoryRepository.findByCateEqual(product.getCategory_id()));

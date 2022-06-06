@@ -51,6 +51,9 @@ public class Products {
 	@Column(name = "quantity")
 	private int quantity;
 	
+	@Column(name = "note")
+	private String note;
+	
 	@ManyToOne
 	@JoinColumn(name = "category_id")
 	private Categories category;
