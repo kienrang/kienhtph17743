@@ -18,9 +18,9 @@
 			<form:form action="/kienhtph17743/login" class="text-center"
 				method="post" modelAttribute="acc">
 				<form:input type="text" path="email" placeholder="Email"
-					class="form-control mt-2" />
+					class="form-control mt-2 formstyle" />
 				<form:input path="password" type="password" id=""
-					placeholder="Mật khẩu" class="form-control mt-2" />
+					placeholder="Mật khẩu" class="form-control mt-2 formstyle" />
 				<button class=" btn btn-outline-primary mt-2 ps-5 pe-5">Đăng
 					nhập</button>
 				<hr>

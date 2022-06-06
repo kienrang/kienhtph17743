@@ -72,6 +72,15 @@ body {
 	font-size: 28px;
 	font-weight: 600;
 }
+
+.formstyle {
+	background-color: rgba(225, 225, 225, 0.5);
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	margin-top: 10px !important;
+	border-radius: 0;
+}
 </style>
 </head>
 
@@ -81,23 +90,23 @@ body {
 		<ul class="d-flex flex-row-reverse">
 
 			<c:if test="${ user == null}">
-				<li><img src="image/icon/icons8-account-30.png" alt=""> 
-					<a href="/kienhtph17743/login">Đăng Nhập</a>
-			</li>
-			
+				<li><img src="image/icon/icons8-account-30.png" alt=""> <a
+					href="/kienhtph17743/login">Đăng Nhập</a></li>
+
 			</c:if>
 			<c:if test="${ user != null}">
-				<li class="nav-item dropdown">
-				<img src="image/icon/icons8-account-30.png" alt=""><a
-				class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-				role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					${user.fullname } </a>
-				<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<li><a class="dropdown-item" href="/kienhtph17743/logout">Đăng Xuất</a></li>
-				</ul></li>
+				<li class="nav-item dropdown"><img
+					src="image/icon/icons8-account-30.png" alt=""><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						${user.fullname } </a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<li><a class="dropdown-item" href="/kienhtph17743/logout">Đăng
+								Xuất</a></li>
+					</ul></li>
 			</c:if>
 
-			
+
 
 
 			<li><img src="image/icon/icons8-favorite-cart-30.png" alt=""><a
@@ -112,7 +121,7 @@ body {
 		<div class="container-fluid layout">
 			<div class="ms-5">
 				<a class="navbar-brand" href="/kienhtph17743/index"> <img
-					src="image/logo/coffe logo.png" alt=""
+					src="image/logo/coffeelogo.png" alt=""
 					style="width: 125px; height: 125px;">
 				</a>
 				<button class="navbar-toggler" type="button"

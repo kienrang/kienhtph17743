@@ -99,7 +99,7 @@ body {
 		<div class="container-fluid layout">
 			<div class="ms-5">
 				<a class="navbar-brand" href="/kienhtph17743/admin/index_order"> <img
-					src="../image/logo/coffe logo.png" alt=""
+					src="../image/logo/coffeelogo.png" alt=""
 					style="width: 125px; height: 125px;">
 				</a>
 				<button class="navbar-toggler" type="button"
