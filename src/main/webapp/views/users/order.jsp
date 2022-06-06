@@ -26,7 +26,7 @@
 								<td>${o.address}</td>
 								<td>1 trăm triệu</td>
 								<td>Chờ xác nhận</td>
-								<td><a href="/kienhtph17743/admin/hdct/${o.id}" class="btn btn-warning">Xem chi tiết</a></td>
+								<td><a href="/kienhtph17743/orderDetail_user/${o.id}" class="btn btn-warning">Xem chi tiết</a></td>
 								<td><a href="/kienhtph17743/deleteOrder/${o.id}" class="btn btn-danger">Hủy Đơn</a></td>
 							</tr>
 						</c:forEach> 

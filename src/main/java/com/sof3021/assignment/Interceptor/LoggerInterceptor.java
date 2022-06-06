@@ -13,7 +13,7 @@ public class LoggerInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		if (request.getSession().getAttribute("account") == null) {
+		if (request.getSession().getAttribute("user") == null) {
 //			request.getSession().setAttribute("error", request.getRequestURI());
 			response.sendRedirect("/kienhtph17743/login");
 			return false;

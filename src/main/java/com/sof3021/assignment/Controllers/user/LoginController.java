@@ -52,7 +52,7 @@ public class LoginController {
 	}
 	
 	@GetMapping("/logout") 
-	public String logout(HttpServletRequest request){
+	public String logout(HttpServletRequest request, Model mol){
 		HttpSession session = request.getSession();
 		session.setAttribute("user", null);
 		return "redirect:/index";

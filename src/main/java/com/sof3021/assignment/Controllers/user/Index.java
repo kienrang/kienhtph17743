@@ -36,6 +36,8 @@ public class Index {
 		Account acc = (Account) session.getAttribute("user");
 		if(acc != null) {
 			mol.addAttribute("user", acc);
+		}else {
+			mol.addAttribute("user", null);
 		}
 		List<Products> ls =  this.productRepository.findAll();
 		mol.addAttribute("ls", ls);

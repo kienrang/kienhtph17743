@@ -112,7 +112,7 @@ body {
 			<li><img src="image/icon/icons8-favorite-cart-30.png" alt=""><a
 				href="/kienhtph17743/cart">Giỏ Hàng</a></li>
 			<li><img src="image/icon/icons8-taxi-mobile-payment-24.png"
-				alt=""><a href="">Đơn hàng</a></li>
+				alt=""><a href="/kienhtph17743/order_user">Đơn hàng</a></li>
 		</ul>
 	</div>
 
@@ -120,10 +120,8 @@ body {
 	<nav class="navbar navbar-expand-lg bg-light">
 		<div class="container-fluid layout">
 			<div class="ms-5">
-				<a class="navbar-brand" href="/kienhtph17743/index"> 		
-				<img
-					src="image/logo/logo.png" alt=""
-					style="width: 125px;"/>
+				<a class="navbar-brand" href="/kienhtph17743/index">
+				<img alt="" src="image/logo/coffe logo.png" style="width: 125px;">
 				</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
