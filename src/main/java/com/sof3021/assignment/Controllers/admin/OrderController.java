@@ -94,6 +94,7 @@ public class OrderController {
 			int pro_price = this.productRepository.findByProductEqual(order.getProduct_id().get(i)).getPrice();
 			int quantity = order.getQuantity().get(i);
 			oddtl.get(i).setPrice(pro_price*quantity);
+			price += oddtl.get(i).getPrice();
 //			this.detailRepostory.save(oddtl.get(i));
 		}
 		od.setPrice(price);

@@ -12,8 +12,7 @@
 					<div class="card-body">
 						<h5 class="card-title">${ pro.name }</h5>
 						<p class="card-text">${pro.price }</p>
-						<a href="#" class="btn btn-outline-secondary form-control mt-2">Mua
-							Ngay</a>
+						<a href="/kienhtph17743/buynow/${pro.id}" class="btn btn-outline-secondary form-control mt-2">Mua Ngay</a>
 					</div>
 				</div>
 			</a>

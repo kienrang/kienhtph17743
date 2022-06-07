@@ -38,7 +38,7 @@
 											alt="" style="width: 100px; height: aoto;"></td>
 										<td>${ pro.product_id.name }</td>
 										<td>${ pro.product_id.price }</td>
-										<td><form:input type="number" path="quantity" /></td>
+										<td><form:input type="number" path="quantity"/></td>
 										<td><a href="/kienhtph17743/deleteCart/${pro.id}" class="btn btn-danger">Xóa khỏi giỏ hàng</a></td>
 									</tr>
 								</c:forEach>

@@ -20,6 +20,7 @@ import com.sof3021.assignment.beans.OrderModel;
 import com.sof3021.assignment.entities.Account;
 import com.sof3021.assignment.entities.OrderDetails;
 import com.sof3021.assignment.entities.Orders;
+import com.sof3021.assignment.entities.Products;
 import com.sof3021.assignment.reposories.OrderDetailRepostory;
 import com.sof3021.assignment.reposories.OrderRepository;
 import com.sof3021.assignment.reposories.ProductRepository;
@@ -70,9 +71,53 @@ public class OrderUserController {
 		this.orderRepository.save(od);
 		return "redirect:/order_user";
 	}
+	
+	@GetMapping("/buynow/{id}")
+	public String buynow(Model mol,@PathVariable("id")Integer id,@ModelAttribute("order")OrderModel model) {
+		Products pro = this.productRepository.getOne(id);
+		mol.addAttribute("pro", pro);
+		mol.addAttribute("view", "/views/users/buynow.jsp");
+		return "layout1";
+	}
+	
+	@PostMapping("/buy/{id}")
+	public String buy(@ModelAttribute("order")OrderModel order, @PathVariable("id")Integer id, HttpServletRequest request) {
+		Products pr = this.productRepository.getOne(id);
+		HttpSession session = request.getSession();
+		Account acc = (Account) session.getAttribute("user");
+		Orders o = new Orders();
+		o.setAcc(acc);
+		o.setAddress(order.getAddress());
+		o.setActive(1);
+		o.setCreate_date(new Date());
+		o.setPrice(pr.getPrice());
+		this.orderRepository.save(o);
+		List<Orders> odn = this.orderRepository.findByIdAcc(acc.getId());
+		Orders oddb = odn.get(odn.size()-1);
+		OrderDetails od = new OrderDetails();
+		od.setPrice(pr.getPrice());
+		od.setProducts(pr);
+		od.setQuantity(1);
+		od.setOrders(oddb);
+		this.detailRepostory.save(od);
+		
+		
+		
+		return "redirect:/order_user";
+	}
+	
+	
 	@PostMapping("/store_order")
 	public String store(@ModelAttribute("order")OrderModel order, HttpServletRequest request) {
 		Orders od = new Orders();
+		System.out.println("ché---------->" + order.toString());
+		List<Integer> abc = order.getQuantity();
+		for (Integer integer : abc) {
+			if(integer == null) {
+				abc.remove(integer);
+			}
+		}
+		System.out.println("Ràng---------->" + order.toString());
 		HttpSession session = request.getSession();
 		Account account = (Account) session.getAttribute("user");
 		System.out.println("Ché----->" + order.toString());
@@ -92,6 +137,8 @@ public class OrderUserController {
 			o.setProducts(this.productRepository.getOne(id));
 			oddtl.add(o);
 		}
+		
+		
 		int price = 0;
 		for (int i = 0; i < oddtl.size(); i++) {
 			oddtl.get(i).setOrders(oddb);
@@ -102,7 +149,6 @@ public class OrderUserController {
 //			this.detailRepostory.save(oddtl.get(i));
 			price += oddtl.get(i).getPrice();
 		}
-		System.out.println(price);
 		od.setPrice(price);
 		this.orderRepository.save(od);
 		this.detailRepostory.saveAll(oddtl);		
