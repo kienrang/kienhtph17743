@@ -1,8 +1,12 @@
 package com.sof3021.assignment.Controllers.admin;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,12 +26,18 @@ public class AccountControllers {
 	private AccountRepository accRepository;
 	
 	@GetMapping("/admin/index_user")
-	public String index(Model mol,@ModelAttribute("user") AccountModel user) {
-		List<Account> ds = this.accRepository.findAll();
-		mol.addAttribute("lsUser", ds);
+	public String index(Model mol,@ModelAttribute("user") AccountModel user, @RequestParam("p") Optional<Integer> p) {
+//		List<Account> ds = this.accRepository.findAll();
+//		mol.addAttribute("lsUser", ds);
+		Pageable pageable=PageRequest.of(p.orElse(0), 3);
+		Page<Account>page= this.accRepository.findAll(pageable);
+		mol.addAttribute("lsUser", page);
+		
 		mol.addAttribute("view", "/views/admin/UserIndex.jsp");
 		return "admin/layoutAdmin";
 	}
+	
+	
 	@GetMapping("/admin/create_user")
 	public String create(Model mol,@ModelAttribute("user") AccountModel user) {
 		mol.addAttribute("view", "/views/admin/UserCreate.jsp");

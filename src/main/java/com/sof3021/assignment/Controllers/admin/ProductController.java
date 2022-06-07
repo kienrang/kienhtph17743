@@ -3,8 +3,12 @@ package com.sof3021.assignment.Controllers.admin;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,8 +16,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sof3021.assignment.beans.ProductModel;
+import com.sof3021.assignment.entities.Account;
 import com.sof3021.assignment.entities.Categories;
 import com.sof3021.assignment.entities.Products;
 import com.sof3021.assignment.reposories.CategoryRepository;
@@ -29,8 +35,12 @@ public class ProductController {
 	private CategoryRepository categoryRepository;
 	
 	@GetMapping("admin/index_product")
-	public String show(Model mol,@ModelAttribute("product")ProductModel product) {
-		List<Products> ls = this.productRepository.findAll();
+	public String show(Model mol,@ModelAttribute("product")ProductModel product, @RequestParam("p") Optional<Integer> p) {
+//		List<Products> ls = this.productRepository.findAll();
+		
+		Pageable pageable=PageRequest.of(p.orElse(0), 3);
+		Page<Products>ls= this.productRepository.findAll(pageable);
+		
 		List<Categories> ds = this.categoryRepository.findAll();
 		mol.addAttribute("cate", ds);
 		mol.addAttribute("ds", ls);
@@ -57,6 +67,7 @@ public class ProductController {
 		pro.setNote(product.getNote());
 		Date now = new Date();
 		pro.setCreated_date(now);
+		System.out.println(product.toString());
 		pro.setCategory(this.categoryRepository.findByCateEqual(product.getCategory_id()));
 		
 		this.productRepository.save(pro);

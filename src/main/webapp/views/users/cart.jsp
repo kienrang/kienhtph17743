@@ -33,12 +33,12 @@
 							<tbody>
 								<c:forEach items="${ ls }" var="pro">
 									<tr class="mt-2">
-										<td><form:checkbox path="product_id" value="${ pro.product_id.id}" /></td>
-										<td><img src="image/products/${ pro.product_id.image }"
+										<td><form:checkbox path="product_id" id="ck${pro.id}" value="${ pro.product_id.id}" onclick="check('${ pro.id }')" /></td>
+										<td><img src="image/products/${pro.product_id.image }"
 											alt="" style="width: 100px; height: aoto;"></td>
 										<td>${ pro.product_id.name }</td>
 										<td>${ pro.product_id.price }</td>
-										<td><form:input type="number" path="quantity"/></td>
+										<td><form:input type="number" id="ip${pro.id}" path="quantity" disabled="true"/></td>
 										<td><a href="/kienhtph17743/deleteCart/${pro.id}" class="btn btn-danger">Xóa khỏi giỏ hàng</a></td>
 									</tr>
 								</c:forEach>
@@ -74,5 +74,20 @@
 		for (var i = 0, n = checkboxes.length; i < n; i++) {
 			checkboxes[i].checked = source.checked;
 		}
+		ip = document.getElementsByName('quantity');
+		if(source.checked == true) {
+			alert("ché");
+		}
+		
+	}
+	
+	function check(id) {
+		a = document.getElementById('ck' + id);
+        if(a.checked == true) {
+            document.getElementById('ip' + id).removeAttribute('disabled');
+        } 
+        if(a.checked == false) {
+            document.getElementById('ip' + id).setAttribute('disabled','true');
+        }
 	}
 </script>

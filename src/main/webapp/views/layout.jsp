@@ -134,7 +134,7 @@ body {
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link active navtext"
-							aria-current="page" href="#">Cà Phê</a></li>
+							aria-current="page" href="/kienhtph17743/category/4">Cà Phê</a></li>
 						<div class="tx"></div>
 						<li class="nav-item"><a class="nav-link active navtext"
 							aria-current="page" href="#">Trà Sữa</a></li>
@@ -158,9 +158,9 @@ body {
 			</div>
 			<div class="me-5">
 				<form class="d-flex" role="search">
-					<input class="form-control me-2" type="search" placeholder="Search"
+					<input class="form-control me-2" type="search" placeholder="Nhập Tên sản phẩm"
 						aria-label="Search">
-					<button class="btn btn-outline-success" type="submit">Search</button>
+					<button class="btn btn-outline-success" type="submit">Tìm</button>
 				</form>
 			</div>
 		</div>

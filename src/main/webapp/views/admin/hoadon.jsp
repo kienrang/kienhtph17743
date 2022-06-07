@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" session="true"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <div class=""
 	style="min-height: 600px; background-image: url(../image/background/adminIndex.jpg); background-size: cover;">
@@ -7,6 +7,10 @@
 		<div class="row">
 			<div class="col-8">
 				<p>Danh sách hóa đơn</p>
+				<c:if test="${ empty ls }">
+							<div class="alert alert-warning" role="alert">
+								${sessionScope.trong}</div>
+						</c:if>
 				<table class="table text-white">
 					<thead class="table-dark">
 						<tr>

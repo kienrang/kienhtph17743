@@ -4,18 +4,23 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.filters.ExpiresFilter.XServletOutputStream;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sof3021.assignment.beans.OrderModel;
 import com.sof3021.assignment.entities.Account;
@@ -60,8 +65,8 @@ public class OrderController {
 	@GetMapping("/admin/create_order")
 	public String create(Model mol, @ModelAttribute("order")OrderModel order) {
 		List<Products> ls_pro = this.productRepository.findAll();
-		mol.addAttribute("lspro", ls_pro);
 		
+		mol.addAttribute("lspro", ls_pro);
 		mol.addAttribute("view", "/views/admin/OrderCreate.jsp");
 		return "admin/layoutAdmin";
 	}
@@ -70,12 +75,7 @@ public class OrderController {
 	@PostMapping("/admin/store_order")
 	public String store(@ModelAttribute("order")OrderModel order) {
 		Orders od = new Orders();
-		List<Integer> abc = order.getQuantity();
-		for (Integer integer : abc) {
-			if(integer == null) {
-				abc.remove(integer);
-			}
-		}
+		System.out.println("ches-------------" + order.toString());
 		od.setAcc(this.accountRepository.findByEmailUser(order.getEmail()));
 		od.setAddress(order.getAddress());
 		od.setActive(2);
@@ -85,7 +85,7 @@ public class OrderController {
 		List<Orders> odn = this.orderRepository.findByIdAcc(this.accountRepository.findByEmailUser(order.getEmail()).getId());
 		Orders oddb = odn.get(odn.size()-1);
 
-		System.out.println("ches-------------" + order.toString());
+		
 		
 		List<OrderDetails> oddtl = new ArrayList<>();
 
@@ -129,18 +129,20 @@ public class OrderController {
 	}
 	
 	@GetMapping("/admin/hoadon")
-	public String hoadon(Model mol) {
+	public String hoadon(Model mol, HttpServletRequest request) {
+		HttpSession session = request.getSession();
 		List<Orders> ls = this.orderRepository.findByActive(2);
 		Orders o = new Orders();
 		if(ls.size()<=0) {
 			ls = null;
-			
+			session.setAttribute("trong", "Không có hóa đơn");
 		}else {
 			o = ls.get(0);
+			List<OrderDetails> lsoddl = this.detailRepostory.findByOrder_id(o);
+			mol.addAttribute("lsoddl",lsoddl);
+			mol.addAttribute("ls", ls);
 		}
-		List<OrderDetails> lsoddl = this.detailRepostory.findByOrder_id(o);
-		mol.addAttribute("lsoddl",lsoddl);
-		mol.addAttribute("ls", ls);
+		
 		mol.addAttribute("view", "/views/admin/hoadon.jsp");
 		return "admin/layoutAdmin";
 	}

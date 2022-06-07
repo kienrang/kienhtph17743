@@ -15,7 +15,7 @@ public class InterceptorConfiguration implements WebMvcConfigurer{
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		// TODO Auto-generated method stub
-		registry.addInterceptor(this.loggerInter).addPathPatterns("/**").excludePathPatterns("/index","/login","/register", "/register_info", "/register_confirm","/registerAccount" );
+		registry.addInterceptor(this.loggerInter).addPathPatterns("/**").excludePathPatterns("/index","/login","/register", "/register_info", "/register_confirm","/registerAccount", "/category/{id}");
 	}
 
 }

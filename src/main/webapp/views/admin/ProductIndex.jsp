@@ -12,17 +12,16 @@
 				<th scope="col">Hình ảnh</th>
 				<th scope="col">Tên Sản phẩm</th>
 				<th scope="col">Giá(VNĐ)</th>
-				<th scope="col">Số lượng</th>
 				<th colspan="2">Thao tác</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${ds}" var="p">
+			<c:forEach items="${ds.content}" var="p">
 				<tr>
-					<th scope="row">${p.image }</th>
-					<td>${p.name }</td>
+					<th scope="row"><img alt="hình ảnh"
+						src="../image/products/${p.image}" style="width: 100px;"></th>
+					<td style="font-weight: bold; font-size: 25px">${p.name }</td>
 					<td>${p.price }</td>
-					<td>${p.quantity }</td>
 					<td>
 						<%-- <a href="/kienhtph17743/admin/edit_product/${p.id}" class="btn btn-outline-primary" >Sửa</a> --%>
 						<a href="" class="btn btn-outline-primary" data-bs-toggle="modal"
@@ -33,21 +32,24 @@
 							<div class="modal-dialog modal-dialog-centered">
 								<div class="modal-content">
 									<div class="modal-header">
-										<h5 class="modal-title" id="staticBackdropLabel">Sửa
-											Sản phẩm</h5>
+										<h5 class="modal-title" id="staticBackdropLabel">Sửa Sản
+											phẩm</h5>
 										<button type="button" class="btn-close"
 											data-bs-dismiss="modal" aria-label="Close"></button>
 									</div>
 									<div class="modal-body">
-										<form:form action="/kienhtph17743/admin/update_product/${p.id}"
+										<form:form
+											action="/kienhtph17743/admin/update_product/${p.id}"
 											method="POST" modelAttribute="product">
 											<div class="m-2">
 												<label for="">Tên Sản phẩm</label>
-												<form:input path="name" type="text" class="form-control" value="${p.name }" />
+												<form:input path="name" type="text" class="form-control"
+													value="${p.name }" />
 											</div>
 											<div class="m-2">
 												<label for="">Giá</label>
-												<form:input path="price" type="text" class="form-control" value = "${p.price }"/>
+												<form:input path="price" type="text" class="form-control"
+													value="${p.price }" />
 											</div>
 											<div class="m-2">
 												<label for="">Loại</label>
@@ -64,7 +66,8 @@
 											</div>
 											<div class="m-2">
 												<label for="">Hình Ảnh</label>
-												<form:input path="image" type="file" class="form-control" value="${p.image}" />
+												<form:input path="image" type="file" class="form-control"
+													value="${p.image}" />
 											</div>
 
 											<div style="width: 70%; margin-left: 15%;">
@@ -110,4 +113,39 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<div class="row">
+		<div class="col-12">
+			<div class="text-center">
+				<nav aria-label="Page navigation example">
+					<ul class="pagination justify-content-center">
+						<c:if test="${ds.number <= 0}">
+							<li class="page-item bg-warning rounded">
+								<button class="page-link" disabled="disabled">«</button>
+							</li>
+						</c:if>
+						<c:if test="${ds.number > 0}">
+							<li class="page-item bg-warning rounded"><a
+								class="page-link"
+								href="/kienhtph17743/admin/index_product?p=${ds.number -1}">
+									« </a></li>
+						</c:if>
+
+						<li class="page-item active" aria-current="page"><a
+							class="page-link" href="#">${ds.number + 1}</a></li>
+						<c:if test="${ds.totalPages - ds.number -1 > 0}">
+							<li class="page-item bg-warning rounded"><a
+								class="page-link"
+								href="/kienhtph17743/admin/index_product?p=${ds.number +1}">»</a>
+							</li>
+						</c:if>
+						<c:if test="${ds.totalPages - ds.number -1 == 0}">
+							<li class="page-item bg-warning rounded">
+								<button class="page-link" disabled="disabled">»</button>
+							</li>
+						</c:if>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
 </div>

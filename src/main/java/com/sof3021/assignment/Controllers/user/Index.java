@@ -14,11 +14,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.sof3021.assignment.beans.OrderModel;
+import com.sof3021.assignment.reposories.CategoryRepository;
 import com.sof3021.assignment.reposories.OrderDetailRepostory;
 import com.sof3021.assignment.reposories.OrderRepository;
 import com.sof3021.assignment.reposories.ProductRepository;
 import com.sof3021.assignment.entities.Account;
 import com.sof3021.assignment.entities.Cart;
+import com.sof3021.assignment.entities.Categories;
 import com.sof3021.assignment.entities.Orders;
 import com.sof3021.assignment.entities.Products;
 
@@ -27,6 +29,8 @@ public class Index {
 
 	@Autowired
 	private ProductRepository productRepository;
+	@Autowired
+	private CategoryRepository categoryRepository;
 	@Autowired
 	HttpServletRequest request;
 	
@@ -50,6 +54,23 @@ public class Index {
 		Products pro  = this.productRepository.getOne(id);
 		mol.addAttribute("product", pro);
 		mol.addAttribute("view", "/views/products/product.jsp");
+		return "layout1";
+	}
+	
+	@GetMapping("category/{id}")
+	public String showCategory(Model mol, @PathVariable("id") Integer id) {
+		HttpSession session = request.getSession();
+		Account acc = (Account) session.getAttribute("user");
+		if(acc != null) {
+			mol.addAttribute("user", acc);
+		}else {
+			mol.addAttribute("user", null);
+		}
+		System.out.println(id);
+		Categories categories = this.categoryRepository.getOne(id);
+		List<Products> ls =  this.productRepository.findByProductEqualCate(categories);
+		mol.addAttribute("ls", ls);
+		mol.addAttribute("view", "/views/home.jsp");
 		return "layout1";
 	}
 }

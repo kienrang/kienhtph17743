@@ -41,13 +41,15 @@
 												</tr>
 											</thead>
 											<tbody>
-												<c:forEach items="${lspro }" var="p">
+												<c:forEach items="${lspro}" var="p">
 													<tr>
-														<td><form:checkbox path="product_id" value="${p.id}" /></td>
+														<td><form:checkbox id="ck${p.id }" path="product_id"
+																value="${p.id}" onclick="check('${p.id}')" /></td>
 														<td>${p.image }</td>
 														<td>${p.name }</td>
 														<td>${p.price}</td>
-														<td><form:input type="number" path="quantity" /></td>
+														<td><form:input type="number" id="ip${p.id}"
+																path="quantity" disabled="true" /></td>
 													</tr>
 												</c:forEach>
 											</tbody>
@@ -58,7 +60,7 @@
 						</div>
 					</div>
 
-					<div class="mt-2">
+					<div class="mt-2 mb-2">
 						<button class="btn btn-info" style="width: 50%; margin-left: 25%;">Tạo</button>
 					</div>
 				</form:form>
@@ -66,3 +68,14 @@
 		</div>
 	</div>
 </div>
+<script>
+	function check(id) {
+		a = document.getElementById('ck' + id);
+		if (a.checked == true) {
+			document.getElementById('ip' + id).removeAttribute('disabled');
+		}
+		if (a.checked == false) {
+			document.getElementById('ip' + id).setAttribute('disabled', 'true');
+		}
+	}
+</script>

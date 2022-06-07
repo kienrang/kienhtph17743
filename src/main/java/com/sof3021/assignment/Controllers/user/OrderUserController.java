@@ -110,17 +110,8 @@ public class OrderUserController {
 	@PostMapping("/store_order")
 	public String store(@ModelAttribute("order")OrderModel order, HttpServletRequest request) {
 		Orders od = new Orders();
-		System.out.println("ché---------->" + order.toString());
-		List<Integer> abc = order.getQuantity();
-		for (Integer integer : abc) {
-			if(integer == null) {
-				abc.remove(integer);
-			}
-		}
-		System.out.println("Ràng---------->" + order.toString());
 		HttpSession session = request.getSession();
 		Account account = (Account) session.getAttribute("user");
-		System.out.println("Ché----->" + order.toString());
 		od.setAcc(account);
 		od.setAddress(order.getAddress());
 		od.setActive(1);
@@ -128,17 +119,12 @@ public class OrderUserController {
 		this.orderRepository.save(od);
 		List<Orders> odn = this.orderRepository.findByIdAcc(account.getId());
 		Orders oddb = odn.get(odn.size()-1);
-
-		
 		List<OrderDetails> oddtl = new ArrayList<>();
-
 		for (Integer id : order.getProduct_id()) {
 			OrderDetails o = new OrderDetails();
 			o.setProducts(this.productRepository.getOne(id));
 			oddtl.add(o);
 		}
-		
-		
 		int price = 0;
 		for (int i = 0; i < oddtl.size(); i++) {
 			oddtl.get(i).setOrders(oddb);
@@ -146,7 +132,6 @@ public class OrderUserController {
 			int pro_price = this.productRepository.findByProductEqual(order.getProduct_id().get(i)).getPrice();
 			int quantity = order.getQuantity().get(i);
 			oddtl.get(i).setPrice(pro_price*quantity);
-//			this.detailRepostory.save(oddtl.get(i));
 			price += oddtl.get(i).getPrice();
 		}
 		od.setPrice(price);
