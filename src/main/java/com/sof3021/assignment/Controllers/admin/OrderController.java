@@ -75,9 +75,11 @@ public class OrderController {
 		od.setActive(2);
 		od.setCreate_date(new Date());
 		this.orderRepository.save(od);
-		List<Orders> odn = this.orderRepository.findByIdAcc(1);
+		
+		List<Orders> odn = this.orderRepository.findByIdAcc(this.accountRepository.findByEmailUser(order.getEmail()).getId());
 		Orders oddb = odn.get(odn.size()-1);
 
+		System.out.println("ches-------------" + order.toString());
 		
 		List<OrderDetails> oddtl = new ArrayList<>();
 
