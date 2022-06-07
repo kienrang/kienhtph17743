@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" session="true"%>
-<div class="mt-5">
+<div class="">
 	<div class="pt-5"
 		style="height: 650px; background-image: url(image/background/background-resister.jpg); background-size: cover; display: flex; justify-content: center;">
 		<div class="pt-4 text-center"

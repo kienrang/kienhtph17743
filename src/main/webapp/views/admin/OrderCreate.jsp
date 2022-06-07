@@ -47,7 +47,7 @@
 														<td>${p.image }</td>
 														<td>${p.name }</td>
 														<td>${p.price}</td>
-														<td><form:input type="number" path="quantity" value="1" /></td>
+														<td><form:input type="number" path="quantity" /></td>
 													</tr>
 												</c:forEach>
 											</tbody>

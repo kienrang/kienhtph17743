@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <div>
 	<div class="pt-5"
-		style="height: 500px; background-image: url(image/background/hinh-anh-ly-cafe-dep-2.jpg); background-size: cover; display: flex; justify-content: center;">
+		style="height: 500px; background-image: url(image/backgrounds/hinh-anh-ly-cafe-dep-2.jpg); background-size: cover; display: flex; justify-content: center;">
 
 
 		<div class="pt-4"

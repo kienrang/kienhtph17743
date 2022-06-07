@@ -70,6 +70,12 @@ public class OrderController {
 	@PostMapping("/admin/store_order")
 	public String store(@ModelAttribute("order")OrderModel order) {
 		Orders od = new Orders();
+		List<Integer> abc = order.getQuantity();
+		for (Integer integer : abc) {
+			if(integer == null) {
+				abc.remove(integer);
+			}
+		}
 		od.setAcc(this.accountRepository.findByEmailUser(order.getEmail()));
 		od.setAddress(order.getAddress());
 		od.setActive(2);
