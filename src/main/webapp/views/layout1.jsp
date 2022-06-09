@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" session="true"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,12 +78,33 @@ body {
 	<!-- Menu -->
 	<div class="menu">
 		<ul class="d-flex flex-row-reverse">
-			<li><img src="../image/icon/icons8-account-30.png" alt=""><a
-				href="/kienhtph17743/login">Đăng Nhập</a></li>
+
+			<c:if test="${ user == null}">
+				<li><img src="../image/icon/icons8-account-30.png" alt=""> <a
+					href="/kienhtph17743/login">Đăng Nhập</a></li>
+
+			</c:if>
+			<c:if test="${ user != null}">
+				<li class="nav-item dropdown"><img
+					src="../image/icon/icons8-account-30.png" alt=""><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						${user.fullname } </a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<li><a class="dropdown-item" href="/kienhtph17743/logout">Đăng
+								Xuất</a></li>
+					</ul></li>
+			</c:if>
+
+
+
+
 			<li><img src="../image/icon/icons8-favorite-cart-30.png" alt=""><a
 				href="/kienhtph17743/cart">Giỏ Hàng</a></li>
 			<li><img src="../image/icon/icons8-taxi-mobile-payment-24.png"
-				alt=""><a href="">Đơn hàng</a></li>
+				alt=""><a href="/kienhtph17743/order_user">Đơn hàng</a></li>
+				<li><img src="../image/icon/icons8-order-history-24.png"
+				alt=""><a href="/kienhtph17743/history">Lịch sử mua hàng</a></li>
 		</ul>
 	</div>
 
@@ -105,7 +127,7 @@ body {
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link active navtext"
-							aria-current="page" href="#">Cà Phê</a></li>
+							aria-current="page" href="/kienhtph17743/category/4">Cà Phê</a></li>
 						<div class="tx"></div>
 						<li class="nav-item"><a class="nav-link active navtext"
 							aria-current="page" href="#">Trà Sữa</a></li>

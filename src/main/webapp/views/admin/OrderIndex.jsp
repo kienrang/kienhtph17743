@@ -51,14 +51,16 @@
 							<th>Tên sản phẩm</th>
 							<th>Giá(VNĐ)</th>
 							<th>Số lượng</th>
+							<td>Tổng</td>
 						</tr>
 					</thead>
 					<tbody>
 						<c:forEach items="${ lsoddl }" var="od">
 							<tr>
 								<td>${od.products.name}</td>
-								<td>${od.price}</td>
+								<td>${od.products.price}</td>
 								<td>${od.quantity}</td>
+								<td>${od.price}</td>
 							</tr>
 						</c:forEach>
 					</tbody>

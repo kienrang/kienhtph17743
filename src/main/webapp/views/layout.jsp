@@ -113,6 +113,8 @@ body {
 				href="/kienhtph17743/cart">Giỏ Hàng</a></li>
 			<li><img src="image/icon/icons8-taxi-mobile-payment-24.png"
 				alt=""><a href="/kienhtph17743/order_user">Đơn hàng</a></li>
+				<li><img src="image/icon/icons8-order-history-24.png"
+				alt=""><a href="/kienhtph17743/history">Lịch sử mua hàng</a></li>
 		</ul>
 	</div>
 

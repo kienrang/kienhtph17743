@@ -16,7 +16,7 @@
 
 			<div class="d-flex" style="margin-top: 25%">
 				<form action="/kienhtph17743/index" method="post" class="me-2">
-					<a href="" class="btn btn-outline-secondary">Mua Ngay</a>
+					<a href="/kienhtph17743/buynow/${product.id}" class="btn btn-outline-secondary">Mua Ngay</a>
 				</form>
 				<form action="/kienhtph17743/store_cart/${product.id}" method="post">
 					<button class="btn btn-outline-warning">Thêm vào giỏ hàng</button>

@@ -102,8 +102,8 @@ body {
 								Xuất</a></li>
 					</ul></li>
 			</c:if>
-			<li><img src="../image/icon/icons8-taxi-mobile-payment-24.png"
-				alt=""><a href="/kienhtph17743/admin/hoadon">Hóa đơn</a></li>
+			<li><img src="../image/icon/icons8-taxi-mobile-payment-24.png" alt=""><a href="/kienhtph17743/admin/hoadon">Hóa đơn</a></li>
+			<li><img src="../image/icon/icons8-check-dollar-24.png" alt=""><a href="/kienhtph17743/admin/hoadon">Doanh thu</a></li>
 		</ul>
 	</div>
 

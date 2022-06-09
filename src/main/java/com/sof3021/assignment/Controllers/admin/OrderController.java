@@ -153,7 +153,7 @@ public class OrderController {
 		mol.addAttribute("lsoddl",lsoddl);
 		mol.addAttribute("ls", ls);
 		mol.addAttribute("view", "/views/admin/hdct.jsp");
-		return "admin/layoutAdmin";
+		return "admin/layoutAdmin1";
 	}
 	
 	

@@ -95,13 +95,15 @@ public class OrderUserController {
 		List<Orders> odn = this.orderRepository.findByIdAcc(acc.getId());
 		Orders oddb = odn.get(odn.size()-1);
 		OrderDetails od = new OrderDetails();
-		od.setPrice(pr.getPrice());
+		od.setPrice(pr.getPrice()*order.getQuantity().get(0));
 		od.setProducts(pr);
-		od.setQuantity(1);
+		od.setQuantity(order.getQuantity().get(0));
 		od.setOrders(oddb);
+		
+		oddb.setPrice(pr.getPrice()*order.getQuantity().get(0));
+		this.orderRepository.save(oddb);
 		this.detailRepostory.save(od);
-		
-		
+	
 		
 		return "redirect:/order_user";
 	}
@@ -138,5 +140,43 @@ public class OrderUserController {
 		this.orderRepository.save(od);
 		this.detailRepostory.saveAll(oddtl);		
 		return "redirect:/index";
+	}
+	
+	@GetMapping("/history")
+	public String history(Model mol, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		Account account = (Account) session.getAttribute("user");
+		List<Orders> ls = this.orderRepository.findByAccountAndActive(account.getEmail(), 2);
+		Orders o = new Orders();
+		if(ls.size()<=0) {
+			ls = null;
+			session.setAttribute("trong", "Không có đơn hàng đã mua");
+		}else {
+			o = ls.get(0);
+			List<OrderDetails> lsoddl = this.detailRepostory.findByOrder_id(o);
+			mol.addAttribute("lsoddl",lsoddl);
+			mol.addAttribute("ls", ls);
+		}	
+		mol.addAttribute("view", "/views/users/history.jsp");
+		return "layout";
+	}
+	
+	@GetMapping("/history_detail/{id}")
+	public String history_detail(Model mol, HttpServletRequest request,@PathVariable("id")Integer id) {
+		HttpSession session = request.getSession();
+		Account account = (Account) session.getAttribute("user");
+		List<Orders> ls = this.orderRepository.findByAccountAndActive(account.getEmail(), 2);
+		Orders o = new Orders();
+		if(ls.size()<=0) {
+			ls = null;
+			session.setAttribute("trong", "Không có đơn hàng đã mua");
+		}else {
+			o = this.orderRepository.getOne(id);
+			List<OrderDetails> lsoddl = this.detailRepostory.findByOrder_id(o);
+			mol.addAttribute("lsoddl",lsoddl);
+			mol.addAttribute("ls", ls);
+		}	
+		mol.addAttribute("view", "/views/users/history.jsp");
+		return "layout";
 	}
 }

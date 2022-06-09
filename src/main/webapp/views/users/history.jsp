@@ -11,9 +11,8 @@
 					<thead class="table-dark">
 						<tr>
 							<th>Mã hóa đơn</th>
-							<th>Địa chỉ</th>
 							<th>Giá</th>
-							<th></th>
+							<th>Thời gian</th>
 							<th colspan="2"></th>
 						</tr>
 					</thead>
@@ -21,11 +20,9 @@
 						 <c:forEach items="${ ls }" var="o">
 							<tr>
 								<td>${o.id }</td>
-								<td>${o.address}</td>
 								<td>${o.price }</td>
-								<td>Chờ xác nhận</td>
-								<td><a href="/kienhtph17743/orderDetail_user/${o.id}" class="btn btn-warning">Xem chi tiết</a></td>
-								<td><a href="/kienhtph17743/deleteOrder/${o.id}" class="btn btn-danger">Hủy Đơn</a></td>
+								<td>${ o.create_date }</td>
+								<td><a href="/kienhtph17743/history_detail/${o.id}" class="btn btn-warning">Xem chi tiết</a></td>
 							</tr>
 						</c:forEach> 
 					</tbody>
@@ -45,7 +42,7 @@
 						<c:forEach items="${ lsoddl }" var="od">
 							<tr>
 								<td>${od.products.name}</td>
-								<td>${od.products.price}</td>
+								<td>${od.price}</td>
 								<td>${od.quantity}</td>
 							</tr>
 						</c:forEach>
