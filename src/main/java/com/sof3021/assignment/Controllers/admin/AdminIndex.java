@@ -19,5 +19,12 @@ public class AdminIndex {
 		mol.addAttribute("view", "/views/admin/index.jsp");
 		return "admin/layoutAdmin";
 	}
+	@GetMapping("admin/doanhthu")
+	public String doanhthu(Model mol, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		Account acc = (Account) session.getAttribute("user");
+		mol.addAttribute("view", "/views/admin/doanhthu.jsp");
+		return "admin/layoutAdmin";
+	}
 	
 }

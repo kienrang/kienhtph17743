@@ -16,4 +16,7 @@ public interface CartRepository extends JpaRepository<Cart, Integer>{
 	@Query("SELECT c FROM Cart c WHERE c.user = :keyword")
 	public List<Cart> findByCartAcc(@Param("keyword")Account id);
 	
+//	@Query("Delete c FROM Cart c WHERE c.user = :keyword")
+//	public void DeleteByUser(@Param("keyword")Account id);
+	
 }

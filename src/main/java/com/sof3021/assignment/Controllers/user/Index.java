@@ -36,6 +36,8 @@ public class Index {
 	
 	@GetMapping("index")
 	public String Home(Model mol) {
+//		List<Categories> lsc = this.categoryRepository.findAll();
+//		mol.addAttribute("lsc", lsc);
 		HttpSession session = request.getSession();
 		Account acc = (Account) session.getAttribute("user");
 		if(acc != null) {
@@ -44,6 +46,7 @@ public class Index {
 			mol.addAttribute("user", null);
 		}
 		List<Products> ls =  this.productRepository.findAll();
+		
 		mol.addAttribute("ls", ls);
 		mol.addAttribute("view", "/views/home.jsp");
 		return "layout";
@@ -52,6 +55,8 @@ public class Index {
 	@GetMapping("product/{id}")
 	public String product(Model mol,@PathVariable("id")Integer id ) {
 		Products pro  = this.productRepository.getOne(id);
+		List<Categories> lsc = this.categoryRepository.findAll();
+		mol.addAttribute("lsc", lsc);
 		mol.addAttribute("product", pro);
 		mol.addAttribute("view", "/views/products/product.jsp");
 		return "layout1";
@@ -66,11 +71,10 @@ public class Index {
 		}else {
 			mol.addAttribute("user", null);
 		}
-		System.out.println(id);
 		Categories categories = this.categoryRepository.getOne(id);
 		List<Products> ls =  this.productRepository.findByProductEqualCate(categories);
 		mol.addAttribute("ls", ls);
-		mol.addAttribute("view", "/views/home.jsp");
+		mol.addAttribute("view", "/views/index1.jsp");
 		return "layout1";
 	}
 }

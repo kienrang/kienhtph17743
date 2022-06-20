@@ -4,7 +4,7 @@
 
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 <div class=""
-	style="min-height: 600px; background-image: url(image/background/adminIndex.jpg); background-size: cover;">
+	style="min-height: 600px; background-image: url(../image/background/adminIndex.jpg); background-size: cover;">
 	<div class="container p-0 mt-2 text-white" style="">
 		<div class="row">
 			<div class="col-8">

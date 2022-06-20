@@ -139,7 +139,6 @@ body {
 						</div>
 						<li class="nav-item"><a class="nav-link active navtext"
 							aria-current="page" href="index_category">Loại sản phẩm</a></li>
-						<div class="tx">
 						</div>
 					</ul>
 				</div>

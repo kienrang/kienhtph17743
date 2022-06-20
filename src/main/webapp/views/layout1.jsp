@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 <style>
 body {
-	font-family: NunitoSanRegular;
+	font-family: NunitoSanRegular !important;
 }
 
 .menu {
@@ -68,8 +68,8 @@ body {
 }
 
 .navtext {
-	font-size: 28px;
-	font-weight: 600;
+	font-size: 28px !important;
+	font-weight: 600 !important;
 }
 </style>
 </head>
@@ -130,21 +130,21 @@ body {
 							aria-current="page" href="/kienhtph17743/category/4">Cà Phê</a></li>
 						<div class="tx"></div>
 						<li class="nav-item"><a class="nav-link active navtext"
-							aria-current="page" href="#">Trà Sữa</a></li>
+							aria-current="page" href="/kienhtph17743/category/1">Trà Sữa</a></li>
 						<div class="tx"></div>
 						<li class="nav-item"><a class="nav-link active navtext"
-							aria-current="page" href="#">Trà Chanh</a></li>
+							aria-current="page" href="/kienhtph17743/category/6">Trà</a></li>
 						<div class="tx"></div>
 						<li class="nav-item dropdown"><a
 							class="nav-link navtext dropdown-toggle" href="#" id="navbarDropdown"
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Khác </a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item" href="#">Action</a></li>
+								<!-- <li><a class="dropdown-item" href="#">Action</a></li>
 								<li><a class="dropdown-item" href="#">Another action</a></li>
 								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="#">Something else
-										here</a></li>
+										here</a></li> -->
 							</ul></li>
 					</ul>
 				</div>
@@ -202,31 +202,31 @@ body {
 						<a class="btn btn-link btn-floating btn-lg text-dark m-1"
 							href="https://www.facebook.com/profile.php?id=100076937655293"
 							role="button" data-mdb-ripple-color="dark"><img
-							src="image/icon/icons8-facebook-30.png" alt=""></i></a>
+							src="../image/icon/icons8-facebook-30.png" alt=""></i></a>
 
 						<!-- Twitter -->
 						<a class="btn btn-link btn-floating btn-lg text-dark m-1"
 							href="#!" role="button" data-mdb-ripple-color="dark"><img
-							src="image/icon/icons8-twitter-30.png" alt=""></a>
+							src="../image/icon/icons8-twitter-30.png" alt=""></a>
 
 						<!-- Google -->
 						<a class="btn btn-link btn-floating btn-lg text-dark m-1"
 							href="#!" role="button" data-mdb-ripple-color="dark"><img
-							src="image/icon/icons8-google-30.png" alt=""></i></a>
+							src="../image/icon/icons8-google-30.png" alt=""></i></a>
 
 						<!-- Instagram -->
 						<a class="btn btn-link btn-floating btn-lg text-dark m-1"
 							href="#!" role="button" data-mdb-ripple-color="dark"><img
-							src="image/icon/icons8-instagram-30.png" alt=""></i></a>
+							src="../image/icon/icons8-instagram-30.png" alt=""></i></a>
 
 						<!-- Linkedin -->
 						<a class="btn btn-link btn-floating btn-lg text-dark m-1"
 							href="#!" role="button" data-mdb-ripple-color="dark"><img
-							src="image/icon/icons8-linkedin-circled-30.png" alt=""></a>
+							src="../image/icon/icons8-linkedin-circled-30.png" alt=""></a>
 						<!-- Github -->
 						<a class="btn btn-link btn-floating btn-lg text-dark m-1"
 							href="#!" role="button" data-mdb-ripple-color="dark"><img
-							src="image/icon/icons8-zalo-50.png" alt=""></a>
+							src="../image/icon/icons8-zalo-50.png" alt=""></a>
 					</section>
 					<!-- Section: Social media -->
 				</div>
@@ -243,9 +243,9 @@ body {
 		</section>
 	</div>
 	
-	<script src="js/query.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="../js/query.min.js"></script>
+	<script src="../js/popper.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
 </body>
 
 </html>

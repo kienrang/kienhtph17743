@@ -103,7 +103,7 @@ body {
 					</ul></li>
 			</c:if>
 			<li><img src="../image/icon/icons8-taxi-mobile-payment-24.png" alt=""><a href="/kienhtph17743/admin/hoadon">Hóa đơn</a></li>
-			<li><img src="../image/icon/icons8-check-dollar-24.png" alt=""><a href="/kienhtph17743/admin/hoadon">Doanh thu</a></li>
+			<li><img src="../image/icon/icons8-check-dollar-24.png" alt=""><a href="/kienhtph17743/admin/doanhthu">Doanh thu</a></li>
 		</ul>
 	</div>
 
@@ -137,7 +137,6 @@ body {
 						</div>
 						<li class="nav-item"><a class="nav-link active navtext"
 							aria-current="page" href="index_category">Loại sản phẩm</a></li>
-						<div class="tx">
 						</div>
 					</ul>
 				</div>

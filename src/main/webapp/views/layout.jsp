@@ -139,22 +139,22 @@ body {
 							aria-current="page" href="/kienhtph17743/category/4">Cà Phê</a></li>
 						<div class="tx"></div>
 						<li class="nav-item"><a class="nav-link active navtext"
-							aria-current="page" href="#">Trà Sữa</a></li>
+							aria-current="page" href="/kienhtph17743/category/1">Trà Sữa</a></li>
 						<div class="tx"></div>
 						<li class="nav-item"><a class="nav-link active navtext"
-							aria-current="page" href="#">Trà Chanh</a></li>
+							aria-current="page" href="/kienhtph17743/category/6">Trà</a></li>
 						<div class="tx"></div>
 						<li class="nav-item dropdown"><a
 							class="nav-link navtext dropdown-toggle" href="#"
 							id="navbarDropdown" role="button" data-bs-toggle="dropdown"
 							aria-expanded="false"> Khác </a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item" href="#">Action</a></li>
-								<li><a class="dropdown-item" href="#">Another action</a></li>
+								<%-- <c:forEach items="lsc" var = "cate">
+									<li><a class="dropdown-item" href="#">${cate.name}</a></li>
 								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" href="#">Something else
-										here</a></li>
-							</ul></li>
+								</c:forEach> --%>
+							</ul>
+							</li>
 					</ul>
 				</div>
 			</div>
