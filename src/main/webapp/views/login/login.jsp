@@ -19,10 +19,11 @@
 				method="post" modelAttribute="acc">
 				<form:input type="text" path="email" placeholder="Email"
 					class="form-control mt-2 formstyle" />
+					<form:errors path="email" class="text-dangger"/>
 				<form:input path="password" type="password" id=""
 					placeholder="Mật khẩu" class="form-control mt-2 formstyle" />
-				<button class=" btn btn-outline-primary mt-2 ps-5 pe-5">Đăng
-					nhập</button>
+					<form:errors path="password" class="text-dangger"/>
+				<button class=" btn btn-outline-primary mt-2 ps-5 pe-5">Đăng nhập</button>
 				<hr>
 			</form:form>
 				<div class="text-center">
