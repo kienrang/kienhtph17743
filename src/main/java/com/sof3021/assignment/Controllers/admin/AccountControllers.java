@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.sof3021.assignment.beans.AccountModel;
 import com.sof3021.assignment.entities.Account;
 import com.sof3021.assignment.reposories.AccountRepository;
+import com.sof3021.assignment.utils.EncryptUtil;
 
 @Controller
 public class AccountControllers {
@@ -27,11 +28,11 @@ public class AccountControllers {
 	
 	@GetMapping("/admin/index_user")
 	public String index(Model mol,@ModelAttribute("user") AccountModel user, @RequestParam("p") Optional<Integer> p) {
-//		List<Account> ds = this.accRepository.findAll();
-//		mol.addAttribute("lsUser", ds);
-		Pageable pageable=PageRequest.of(p.orElse(0), 3);
-		Page<Account>page= this.accRepository.findAll(pageable);
-		mol.addAttribute("lsUser", page);
+		List<Account> ds = this.accRepository.findByAtiveUser(1,0);
+		mol.addAttribute("lsUser", ds);
+//		Pageable pageable=PageRequest.of(p.orElse(0), 3);
+//		Page<Account>page= this.accRepository.findAll(pageable);
+//		mol.addAttribute("lsUser", page);
 		
 		mol.addAttribute("view", "/views/admin/UserIndex.jsp");
 		return "admin/layoutAdmin";
@@ -49,7 +50,8 @@ public class AccountControllers {
 		Account acc = new Account();
 		acc.setFullname(user.getFullname());
 		acc.setEmail(user.getEmail());
-		acc.setPassword(user.getPassword());
+		String pwd = EncryptUtil.encrypt(user.getPassword());		
+		acc.setPassword(pwd);
 		acc.setPhoto(user.getPhoto());
 		acc.setActivated(user.getActivated());
 		acc.setId(0);
@@ -74,13 +76,14 @@ public class AccountControllers {
 		Account acc =  this.accRepository.getOne(id);
 		acc.setEmail(user.getEmail());
 		acc.setFullname(acc.getFullname());
-		acc.setPassword(user.getPassword());
+		String pwd = EncryptUtil.encrypt(user.getPassword());
+		acc.setPassword(pwd);
 		if(user.getPhoto() != null) {
 			acc.setPhoto(user.getPhoto());
 		}
 		acc.setId(id);
 		acc.setActivated(user.getActivated());
-		acc.setAdmin(1);
+		acc.setAdmin(0);
 		
 		this.accRepository.save(acc);
 		
@@ -90,7 +93,9 @@ public class AccountControllers {
 	
 	@GetMapping("/admin/delete_user/{id}")
 	public String Delete(@PathVariable("id")Account user) {
-		this.accRepository.delete(user);
+		Account a = this.accRepository.getOne(user.getId());
+		a.setActivated(0);
+		this.accRepository.save(a);
 		return "redirect:/admin/index_user";
 	}
 }

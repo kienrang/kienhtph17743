@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.sof3021.assignment.beans.AccountModel;
 import com.sof3021.assignment.entities.Account;
 import com.sof3021.assignment.reposories.AccountRepository;
+import com.sof3021.assignment.utils.EncryptUtil;
 
 @Controller
 public class LoginController {
@@ -32,10 +33,15 @@ public class LoginController {
 		HttpSession session = request.getSession();
 		Account account = this.accountRepository.findByEmailUser(acc.getEmail());
 		int check = 2;
-		if(acc.getEmail().equals(account.getEmail()) && acc.getPassword().equals(account.getPassword())) {
+		
+		boolean ck = EncryptUtil.check(acc.getPassword(), account.getPassword());
+		
+		if(acc.getEmail().equals(account.getEmail()) && ck==true) {
 			session.setAttribute("user", account);
 			if(account.getAdmin()==1) {
 				check =1;
+			}else if (account.getActivated() == 0) {
+				check = 3;
 			}else {
 				check = 0;
 			}
@@ -46,9 +52,14 @@ public class LoginController {
 			return "redirect:/admin/index_order";
 		}else if(check ==0) {
 			return "redirect:/index";
+		}else if (check == 3) {
+			session.setAttribute("error", "Tài khoản của bạn đã bị khóa");
+			return "redirect:/login";
 		}else {
 			return "redirect:/login";
 		}
+		
+		
 	}
 	
 	@GetMapping("/logout") 

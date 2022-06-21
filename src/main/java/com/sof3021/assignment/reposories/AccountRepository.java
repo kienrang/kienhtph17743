@@ -15,5 +15,7 @@ public interface AccountRepository extends JpaRepository<Account, Integer>{
 	@Query("SELECT acc FROM Account acc WHERE acc.email = :email")
 	public Account findByEmailUser(@Param("email")String email);
 	@Query("SELECT acc FROM Account acc WHERE acc.id = :id")
-	public Account findByIdUser(@Param("id")Integer id); 
+	public Account findByIdUser(@Param("id")Integer id);
+	@Query("SELECT acc FROM Account acc WHERE acc.activated = :active and acc.admin = :admin")
+	public List<Account> findByAtiveUser(@Param("active")Integer active, @Param("admin")Integer admin);
 }

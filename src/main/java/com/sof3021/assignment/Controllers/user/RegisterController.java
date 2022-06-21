@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.sof3021.assignment.beans.AccountModel;
 import com.sof3021.assignment.entities.Account;
 import com.sof3021.assignment.reposories.AccountRepository;
+import com.sof3021.assignment.utils.EncryptUtil;
 
 @Controller
 public class RegisterController {
@@ -64,9 +65,10 @@ public class RegisterController {
 			Account acc = new Account();
 			acc.setEmail(acount.getEmail());
 			acc.setFullname(acount.getFullname());
-			acc.setPassword(acount.getPassword());
+			String pwd = EncryptUtil.encrypt(acount.getPassword());
+			acc.setPassword(pwd);
 			acc.setPhoto(acount.getPhoto());
-			acc.setActivated(0);
+			acc.setActivated(1);
 			acc.setId(0);
 			try {
 				this.accountRepository.save(acc);

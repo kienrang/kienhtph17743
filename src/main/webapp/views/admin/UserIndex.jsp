@@ -17,7 +17,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${lsUser.content}" var="acc">
+			<c:forEach items="${lsUser}" var="acc">
 				<tr>
 					<th scope="row">${acc.id}</th>
 					<td>${acc.fullname}</td>
@@ -110,7 +110,7 @@
 				</tr>
 			</c:forEach>
 	</table>
-	<div class="row">
+	<%-- <div class="row">
 		<div class="col-12">
 			<div class="text-center">
 				<nav aria-label="Page navigation example">
@@ -144,6 +144,6 @@
 				</nav>
 			</div>
 		</div>
-	</div>
+	</div> --%>
 	</tbody>
 </div>
