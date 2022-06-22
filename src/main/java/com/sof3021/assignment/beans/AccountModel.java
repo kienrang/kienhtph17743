@@ -1,6 +1,7 @@
 package com.sof3021.assignment.beans;
 
 
+import javax.persistence.NamedQuery;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
